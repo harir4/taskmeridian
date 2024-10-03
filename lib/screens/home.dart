@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:task/modelview/modelview/dataController.dart';
+import 'package:task/modelview/services/dataController.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -127,12 +127,36 @@ class _HomeState extends State<Home> {
                                   title: Text(
                                     data.dataList![index].title,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 10),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                    ),
                                   ),
-                                  subtitle: Text(
-                                    data.dataList![index].body,
-                                    style: TextStyle(fontSize: 6),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        data.dataList![index].body,
+                                        style: TextStyle(fontSize: 6),
+                                      ),
+                                      SizedBox(height: 4),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconButton(
+                                            icon:
+                                                Icon(Icons.thumb_up, size: 16),
+                                            onPressed: () {},
+                                          ),
+                                          SizedBox(width: 10),
+                                          IconButton(
+                                            icon: Icon(Icons.share, size: 16),
+                                            onPressed: () {},
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
                               );
